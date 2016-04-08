@@ -1,0 +1,96 @@
+ex0
+
+[Char]
+
+ex1
+
+(Char,Char,Char)
+
+ex2
+
+[(Bool,Char)]
+
+ex3
+
+([Bool], [Char])
+
+ex4
+
+[[a] -> [a]]
+
+ex5
+
+[a] -> a
+
+ex6
+
+(a,b) -> (b,a)
+
+ex7
+
+a -> b -> (a,b)
+
+ex8
+
+Num a => a -> a
+
+ex9
+
+Eq a => [a] -> Bool
+
+ex10
+
+?? why ??
+twice f x = f (f x)
+(a -> a) -> a -> a
+
+ex11
+
+Is it feasible for function types (in general) to be instances of the Eq class?
+
+Hint: Two functions of the same type are equal iff they always return equal results for equal arguments.
+
+Infeasible in general; only feasible for some functions.
+
+// Ahhh...this was tricky...right it would be computationally infeasible to test this in most cases
+
+ex12
+
+['1',['2','3']]
+
+ex13
+
+[1,[2,3],4]
+
+ex14
+
+[String]
+
+ex15
+
+([Bool], Bool)
+
+ex16
+
+(String,String)
+
+ex17
+
+[(Int,Bool)]
+
+ex18
+
+[a] -> [a]
+
+ex19
+
+// interesting.. guess it makes sense going back to
+// 1 : 2 : [] => cons1(cons2([]))
+// but I thought the types themselves associate left
+// whereas the calls associate right, maybe I misheard
+
+a -> (b -> (c -> d))
+
+ex20
+
+[1,2,3] ++ 4
