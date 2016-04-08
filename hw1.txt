@@ -1,0 +1,74 @@
+ex0
+
+(2 ^ 3) * 4 
+(2 * 3) + (4 * 5) 
+2 + (3 * (4 ^ 5)) 
+
+ex1
+
+n = a `div` length xs
+	where a = 10
+		xs = [1,2,3,4,5]
+
+ex2
+
+last xs = head (drop (length xs - 1) xs)
+last xs = xs !! (length xs - 1)
+last xs = head (reverse xs)
+
+ex3
+
+init xs = reverse (tail (reverse xs))
+
+ex4
+
+double (double 2)
+= { applying the inner double }
+double (2 + 2)
+= { applying double }
+(2 + 2) + (2 + 2)
+= { applying the ﬁrst + }
+4 + (2 + 2)
+= { applying the second + }
+4+4
+= { applying + }
+8
+
+ex5
+
+sum [x]
+=   { applying sum }
+x + sum []
+=   { applying sum }
+x + 0
+=   { applying + }
+x
+
+ex6
+
+product [] = 1
+product (x : xs) = x * product xs
+
+ex7 
+
+qsort [] = []
+qsort (x : xs) = qsort larger ++ [x] ++ qsort smaller
+	where smaller = [a | a <- xs, a <= x]
+		larger = [b | b <- xs, b > x]
+
+qsort [] = []
+qsort (x : xs) = qsort larger ++ [x] ++ qsort smaller
+	where larger = [a | a <- xs, a > x || a == x]
+		smaller = [b | b <- xs, b < x]
+
+???
+[5,6,7,4,1,2,3]
+qsort [] = []
+qsort (x : xs) 
+	= reverse 
+		(reverse (qsort smaller) ++ [x] ++ reverse (qsort larger))
+
+ex8
+
+duplicates removed
+sorting only correct for some inputs
