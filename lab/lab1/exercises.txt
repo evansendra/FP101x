@@ -1,1 +1,67 @@
-// TODO
+ex0
+
+[Bool]
+
+ex1
+
+[[Integer]]
+[[Int]]
+Num t => [[t]]
+
+ex2
+
+[[[Integer]]]
+[[[Int]]]
+Num t => [[[t]]]
+
+ex3
+
+Num a => a -> a
+
+ex4
+
+(a,b) -> a
+
+ex5
+
+(a,b,c) -> c
+
+ex6
+
+Num a => a -> a -> a
+
+ex7
+
+(a,b) -> (b,a)
+
+ex8
+
+a -> b -> (b,a)
+
+ex9
+
+[t] -> (t, Bool)
+
+ex10
+
+(t, t) -> [t]
+
+ex11
+
+e11 = ('\a', True)
+
+ex12
+
+e12 = [('a',1)]
+
+ex13
+
+e13 x y = x + y * y
+
+ex14
+
+e14 = ("Haskell", [3.1, 3.14, 3.141, 3.1415])
+
+ex15
+
+e15 xs ys = (head xs, head ys)
