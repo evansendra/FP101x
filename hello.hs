@@ -1,3 +1,1 @@
-add = \ x -> (\ y -> (\ z -> x + y + z))
-
-e1 = [[1,2],[3,4]]
+riffle xs ys = concat [ x,y | (x,y) <- xs `zip` ys]
