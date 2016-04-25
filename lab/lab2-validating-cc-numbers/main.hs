@@ -12,7 +12,8 @@ import Data.Char
 
 toDigits :: Integer -> [Integer]
 -- howto write this pointfree? e.g. toInteger . digitToInt . show n . (!!) x doesn't work
-toDigits n = [toInteger (digitToInt (show n !! x)) | x <- [0..(length (show n) - 1)]]
+toDigits n 
+    | n >= 0 = [toInteger (digitToInt (show n !! x)) | x <- [0..(length (show n) - 1)]]
 
 
 -- ===================================
@@ -44,8 +45,7 @@ sumDigits (x:xs) = (sum . toDigits $ x) + sumDigits xs
 -- ===================================
 
 isValid :: Integer -> Bool
-isValid n 
-    | n >= 0 = ((`mod` 10) . sumDigits . doubleSecond . toDigitsRev $ n) == 0
+isValid n = ((`mod` 10) . sumDigits . doubleSecond . toDigitsRev $ n) == 0
 
 
 -- ===================================
