@@ -1,1 +1,2 @@
-riffle xs ys = concat [ x,y | (x,y) <- xs `zip` ys]
+toDigits :: Integer -> [Integer]
+toDigits = map (read . (:[])) . show
