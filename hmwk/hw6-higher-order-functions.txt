@@ -57,3 +57,88 @@ ex10
 uncurry f = \ (x, y) -> f x y
 
 ex11
+
+chop8 = unfold null (take 8) (drop 8)
+
+ex12
+
+map f = unfold null (f . head) tail
+
+ex13
+
+iterate f = unfold (const False) id f
+
+ex14
+
+f . (g . h) = (f . g) . h
+
+ex15
+
+[x] : xs = [x, xs]
+
+ex16
+
+filter p . filter p = filter p
+
+ex17
+
+reverse (map f xs) = map f (reverse xs)
+
+ex18
+
+reverse (xs ++ ys) = reverse ys ++ reverse xs
+
+ex19
+
+take 10 [1..]
+
+ex20
+
+that sum is higher order function
+
+ex21
+
+that map is an overloaded function
+
+ex22
+
+that foldr is overloaded
+
+ex23
+
+take is polymorphic
+
+ex24
+
+f x = x > 3 -- but why...because it restricts the type to Number class?
+
+ex25
+
+take 4 (iterate (+1) 1)
+
+ex26
+
+[2,4]
+
+ex27
+
+[(1,'a'),(2,'b')]
+
+ex28
+
+(-) 1 ((-) 2 ((-) 3 ((-) 4 (0))))
+(-) 1 ((-) 2 (3 - 4))
+(-) 1 (3)
+-2
+
+ex29
+
+[2,4,6]
+
+ex30
+
+[f x|x <- xs, p (f x)]
+
+ex31
+
+cExp (CNat a) (CNat b) = CNat (b a) -- kinda skipped this one
