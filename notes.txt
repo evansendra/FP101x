@@ -1,0 +1,44 @@
+Abstraction of division = case analysis of expressions to see if they're Nothing and if the division is math. legally
+
+Maybe type? -> (Just x) and Nothing type?
+
+seqn lets us transform Maybe types which could actually be Nothing or could be (Just a)
+
+seqn lets us deal with Maybe types but gets harry when trying to deal with more args:
+
+eval (Op x y z) = apply f (eval x `seqn` (eval y `seqn` eval z))
+                  where f (a,(b,c)) = Op a b c
+
+Just thought this was succint using the then operator:
+
+Using >>=, our evaluator can now be rewritten as:
+
+   eval (Val n)   = Just n
+   eval (Div x y) = eval x >>= (\n ->
+                    eval y >>= (\m ->
+                    safediv n m))
+
+using haskell's syntactic sugar, we get the following equivalent:
+
+   eval (Val n)   = Just n
+   eval (Div x y) = do n <- eval x
+                       m <- eval y
+                       safediv n m
+
+original evaluator:
+
+   eval          :: Expr -> Maybe Int
+   eval (Val n)   =  Just n
+   eval (Div x y) =  case eval x of
+                        Nothing -> Nothing
+                        Just n  -> case eval y of
+                          Nothing -> Nothing
+                          Just m  -> safediv n m
+
+with >>= operator, case analysis is being performed automatically by that function
+
+eval (Op x y z) = do a <- eval x
+                     b <- eval y
+                     c <- eval z
+                     Op a b c
+

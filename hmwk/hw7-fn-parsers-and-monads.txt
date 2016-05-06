@@ -1,0 +1,17 @@
+ex0
+
+[('h', "ello")]
+
+ex1
+
+Always succeeds ... why?
+
+ex2
+
+[(1, "hello")]
+
+ex3
+
+[('h', "ello")] -- why?
+
+ex4
