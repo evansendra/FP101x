@@ -1,0 +1,25 @@
+43772529500
+
+0
+
+infinite computation
+
+Integer -> [Integer]
+
+42925
+
+295425
+
+385
+
+0
+
+-60
+
+((a f) b) g c
+
+a -> (f -> b -> (g -> c))
+
+((a,f,b,g,c))
+
+* same as above *
