@@ -107,10 +107,10 @@ Derived primitives
                                       return ()
 >
 > expr                          :: Parser Int
-> expr                          = do n <- nat
+> expr                          = do n <- natural -- ignores spacing
                                      ns <- many
                                             (do symbol "-"
-                                                nat)
+                                                natural)
                                      return (foldl (-) n ns)
 
 Ignoring spacing

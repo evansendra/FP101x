@@ -41,3 +41,12 @@ int = do (char '-'
           n <- nat
           return (-n))
           +++ nat
+
+ex7
+
+expr :: Parser Int
+expr = do n <- natural -- ignores spacing
+            ns <- many
+                (do symbol "-"
+                    natural)
+                    return (foldl (-) n ns)
