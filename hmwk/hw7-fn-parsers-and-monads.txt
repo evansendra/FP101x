@@ -4,7 +4,7 @@ ex0
 
 ex1
 
-Always succeeds ... why?
+Always succeeds -> because first parser always succeeds, returns 1 always
 
 ex2
 
@@ -12,6 +12,32 @@ ex2
 
 ex3
 
-[('h', "ello")] -- why?
+[('h', "ello")] -- why? --> because the item parser won't fail thus return 'a' will never execute
 
 ex4
+
+-- definitely need to say this one in words
+-- taking parser of type a (which transforms it's input to [(a, String)]...) and
+-- then using the second argument of the bind operator to transform the a from the 
+-- returned tuple to the new parser type, Parser b, so we're essentially converting 
+-- the monadic type from a monad with one type of operator to same type with diff type param
+
+(>>=) :: Parser a -> (a -> Parser b) -> Parser b
+p >>= f 
+    = P (\ inp ->
+                case parse p inp of
+                [(v,out)] -> parse (f v) out
+                [] -> [])
+
+
+ex5
+
+always succeeds but since character may or may not be 'a' we don't know its value
+
+ex6
+
+int :: Parser int
+int = do (char '-'
+          n <- nat
+          return (-n))
+          +++ nat

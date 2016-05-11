@@ -91,18 +91,27 @@ Derived primitives
 > nat                           =  do xs <- many1 digit
 >                                     return (read xs)
 >
-> int                           :: Parser Int
-> int                           =  error "You must implement int"
+> int                           :: parser int
+> int                           = do (char '-'
+                                      n <- nat
+                                      return (-n))
+                                      +++ nat
 > 
 > space                         :: Parser ()
 > space                         =  do many (sat isSpace)
 >                                     return ()
 >
 > comment                       :: Parser ()
-> comment                       = error "You must implement comment"
+> comment                       = do string "--"
+                                      many1 (sat (/= '\n'))
+                                      return ()
 >
 > expr                          :: Parser Int
-> expr                          = error "You must implement expr"
+> expr                          = do n <- nat
+                                     ns <- many
+                                            (do symbol "-"
+                                                nat)
+                                     return (foldl (-) n ns)
 
 Ignoring spacing
 ----------------
